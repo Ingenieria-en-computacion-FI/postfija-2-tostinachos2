@@ -52,7 +52,7 @@ void imprimirCola(Cola* c){
     if(c==NULL||c->frente==NULL)return;
     NodoCola* actual=c->frente;
     while(actual!=NULL){
-        printf("%c",*((char*)actual->dato));
+        printf("%c ", *((char*)actual->dato));
         actual=actual->siguiente;
     }
     printf("\n");
