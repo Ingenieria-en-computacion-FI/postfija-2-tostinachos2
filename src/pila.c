@@ -11,17 +11,22 @@ Pila* crearPila() {
 }
 
 void push(Pila* p, void *dato, size_t size){
-    if(p==NULL) return;
-    
+    if(p == NULL) return;
+
     NodoPila* nuevo = (NodoPila*) malloc(sizeof(NodoPila));
-    if (nuevo->dato == NULL){
+    if(nuevo == NULL) return;
+
+    nuevo->dato = malloc(size);
+
+    if(nuevo->dato == NULL){
         free(nuevo);
-    return;
+        return;
     }
+
     memcpy(nuevo->dato, dato, size);
 
-    nuevo->siguiente= p->tope;
-    p->tope=nuevo;
+    nuevo->siguiente = p->tope;
+    p->tope = nuevo;
 }
 
 char pop(Pila* p){
